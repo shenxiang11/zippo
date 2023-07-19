@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestRemoveAtIntegerSlice(t *testing.T) {
+func TestRemoveAt_IntegerSlice(t *testing.T) {
 	intSlice := []int{1, 2, 3, 4, 5}
 	expectedIntSlice := []int{1, 2, 4, 5}
 	intSlice = RemoveAt(intSlice, 2)
@@ -14,7 +14,7 @@ func TestRemoveAtIntegerSlice(t *testing.T) {
 	}
 }
 
-func TestRemoveAtStringSlice(t *testing.T) {
+func TestRemoveAt_StringSlice(t *testing.T) {
 	strSlice := []string{"a", "b", "c", "d"}
 	expectedStrSlice := []string{"b", "c", "d"}
 	strSlice = RemoveAt(strSlice, 0)
@@ -23,7 +23,7 @@ func TestRemoveAtStringSlice(t *testing.T) {
 	}
 }
 
-func TestRemoveAtFloatSlice(t *testing.T) {
+func TestRemoveAt_FloatSlice(t *testing.T) {
 	floatSlice := []float64{1.1, 2.2, 3.3, 4.4}
 	expectedFloatSlice := []float64{1.1, 2.2, 3.3}
 	floatSlice = RemoveAt(floatSlice, len(floatSlice)-1)
@@ -32,7 +32,7 @@ func TestRemoveAtFloatSlice(t *testing.T) {
 	}
 }
 
-func TestRemoveAtEmptySlice(t *testing.T) {
+func TestRemoveAt_EmptySlice(t *testing.T) {
 	emptySlice := []int{}
 	emptySlice = RemoveAt(emptySlice, 0)
 	if len(emptySlice) != 0 {
@@ -40,7 +40,7 @@ func TestRemoveAtEmptySlice(t *testing.T) {
 	}
 }
 
-func TestRemoveAtCapChange(t *testing.T) {
+func TestRemoveAt_CapChange(t *testing.T) {
 	slice := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
 	for i := 0; i < 5; i++ {
