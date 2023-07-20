@@ -41,12 +41,14 @@ func TestRemoveAt_EmptySlice(t *testing.T) {
 }
 
 func TestRemoveAt_CapChange(t *testing.T) {
+	SetAdjustBound(8)
 	slice := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
 	for i := 0; i < 5; i++ {
 		slice = RemoveAt(slice, 0)
 	}
-	if cap(slice) != 5 {
+	if cap(slice) != 8 {
 		t.Errorf("Test case 5 failed. Expected: cap(%d), Got: cap(%d)", 5, cap(slice))
 	}
+	ResetAdjustBound()
 }
