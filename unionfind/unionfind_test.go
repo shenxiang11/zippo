@@ -3,7 +3,7 @@ package unionfind
 import "testing"
 
 func TestNewUnionFind(t *testing.T) {
-	qf := NewUnionFind(5)
+	qf := NewUnionFind(6)
 
 	// 测试初始状态下是否正确地连接
 	if qf.Connected(0, 1) || qf.Connected(1, 2) || qf.Connected(3, 4) {
@@ -13,10 +13,11 @@ func TestNewUnionFind(t *testing.T) {
 	// 连接元素
 	qf.Union(0, 1)
 	qf.Union(1, 2)
+	qf.Union(5, 1)
 	qf.Union(3, 4)
 
 	// 测试连接是否正确
-	if !qf.Connected(0, 1) || !qf.Connected(1, 2) || !qf.Connected(3, 4) {
+	if !qf.Connected(0, 1) || !qf.Connected(1, 2) || !qf.Connected(3, 4) || !qf.Connected(0, 5) {
 		t.Errorf("TestQuickFind failed. Connections after unions are incorrect.")
 	}
 
